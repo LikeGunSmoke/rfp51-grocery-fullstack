@@ -1,15 +1,22 @@
-// const mysql = require("mysql");
+const mysql = require("mysql");
+//var connection = mysql.createConnection({debug: true})
+const connection = mysql.createConnection({
+  host:"localhost",
+  user: "student",
+  password: "student",
+  database: "groceries"
+});
 
-// const connection = mysql.createConnection({
-//   user: "admin",
-//   password: "notpassword",
-//   database: "staff",
-// });
+connection.connect();
+//query arg1 = query string arg2 cb -err first cb pattern
+connection.query('SELECT * FROM list', (err, result) => {
+  if (err) {
+    console.error('FAILED DB CONNECTION');
+  } else {
+    console.log(result);
+  }
+})
 
-// connection.connect();
+connection.end();
 
-// module.exports = connection;
-
-// Commented out for now, throwing  code: 'ER_ACCESS_DENIED_ERROR'
-// Disallows server connection, successful after removal
-// May need to grant root access to admin? thats a problem for later...
+module.exports = connection;

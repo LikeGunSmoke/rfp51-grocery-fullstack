@@ -5,8 +5,7 @@ const app = express();
 const port = 8080;
 const cors = require("cors");
 const db = require("../db/index.js");
-const endpoint = '/GroceryList'
-
+const endpoint = '/GroceryList';
 app.use(cors());
 
 app.get(endpoint, (req, res) => {
