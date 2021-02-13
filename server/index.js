@@ -8,6 +8,10 @@ const db = require("../db/index.js");
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.status(200).send('SUCCESS');
+})
+
 app.listen(port, () => {
   console.log("listening on 8080");
 });
