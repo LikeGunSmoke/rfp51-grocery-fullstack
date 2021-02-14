@@ -14,7 +14,7 @@ app.get(endpoint, (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  retrieve.getList((err, result) => {
+  db.getList((err, result) => {
     if (err) {
       console.error(err);
     } else {
